@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
@@ -15,11 +10,31 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
+    <a-button href="https://antdv.com/components/button#Button" target="_blank">Add</a-button>
   </header>
 
   <RouterView />
 </template>
+<script lang="ts">
+import { RouterLink, RouterView } from 'vue-router'
+import HelloWorld from './components/HelloWorld.vue'
+import { Button } from 'ant-design-vue'
+import { defineComponent } from 'vue'
+import * as AppComponents from './components'
 
+export default defineComponent({
+  components: {
+    ...AppComponents,
+    HelloWorld,
+    AButton: Button,
+    RouterLink,
+    RouterView
+  },
+  setup() {
+    return {}
+  }
+})
+</script>
 <style scoped>
 header {
   line-height: 1.5;

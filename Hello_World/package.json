@@ -4,20 +4,23 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --build --force",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "vite": "vite",
+    "build": "vite build",
+    "build:dev": "vite build --mode development",
+    "build:prod": "vite build --mode production",
+    "lint": "eslint --ext .js,.jsx,.vue sub-repos && eslint --ext .js,.jsx,.vue src",
+    "format": "eslint --fix  sub-repos && prettier --write  sub-repos && eslint --fix src && prettier --write src",
+    "watch:dev": "vite build --watch --mode development",
+    "watch:prod": "vite build --watch --mode production"
   },
   "dependencies": {
     "npkill": "^0.11.3",
     "pinia": "^2.1.7",
     "pnpm": "^9.0.6",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "ant-design-vue": "4.2.1",
+    "unplugin-vue-components": "^0.27.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
@@ -27,6 +30,7 @@
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/eslint-config-typescript": "^13.0.0",
     "@vue/tsconfig": "^0.5.1",
+    "@nabla/vite-plugin-eslint": "^2.0.4",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
     "npm-run-all2": "^6.1.2",
