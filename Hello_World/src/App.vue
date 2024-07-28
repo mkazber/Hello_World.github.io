@@ -3,7 +3,7 @@
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -20,11 +20,11 @@ import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import { Button } from 'ant-design-vue'
 import { defineComponent } from 'vue'
-import * as AppComponents from './components'
+// import * as AppComponents from './components'
 
 export default defineComponent({
   components: {
-    ...AppComponents,
+    // ...AppComponents,
     HelloWorld,
     AButton: Button,
     RouterLink,
